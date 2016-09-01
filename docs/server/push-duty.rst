@@ -3,8 +3,8 @@ Push Duty
 
 The pushing of the server rotates each week to another developer. Current rotation is:
 
-* andym
 * cgrebs
+* eviljeff
 * kumar
 * mat
 * mstriemer
@@ -16,17 +16,41 @@ Check out the `Add-ons calendar <https://calendar.google.com/calendar/embed?src=
 Before the push
 ---------------
 
-Tag the repos
-+++++++++++++
 
 The code that will go in production on Thursday is tagged on Tuesday. The
 following repositories are tagged:
 
     * `addons-server <https://github.com/mozilla/addons-server/>`_
+    * `addons-frontend <https://github.com/mozilla/addons-frontend/>`_
+
+Project Dependencies
+++++++++++++++++++++
+
+Project dependencies are not tagged as part of the push duty responsibilities.
+If you're working on a feature in a project that's a dependency of a project
+e.g. ``addons-linter``, then it's *your* responsibility to make a release and
+update the project that consumes that dependency in time for the tag.
+
+This way we can ensure that:
+
+  * Dependency packages are built and released in time for the tag.
+  * The new feature in the new version of a package has been validated on
+    -dev.
+
+Making multiple releases of a package during a weekly milestone is totally
+fine since this helps with testing smaller sets of changes.
+
+Tag the repos
++++++++++++++
 
 Tags are of the format: ``YYYY.MM.DD``,
 
-.. note:: the date is the date of the push, not the date of tagging.
+.. note:: The date is the date of the push, not the date of tagging.
+
+.. note:: Once addons-frontend has been tagged a new docker image will be
+   built on `Docker Hub
+   <https://hub.docker.com/r/addons/addons-frontend/builds/>`_ and is
+   required to deploy to stage.
 
 It's usually the master branch that is tagged::
 
@@ -75,11 +99,10 @@ Then update the etherpad with the new comparison link for the updated tag.
 Push to stage
 +++++++++++++
 
-Once the tag is ready, it needs to be pushed to the staging server, using the
-ops jenkins (you can find the Stage Jenkins URL on
-`mana <https://mana.mozilla.org/wiki/display/SVCOPS/AMO+Dev+Resources#AMODevResources-StageandProd>`_):
-click on "build with parameters", and enter the tag (eg
-``2015.09.10``). Jason can help with that if needed.
+Once the tag is ready and any needed docker containers have been built, it
+needs to be pushed to the staging server, using the `IRC bot in #amopush
+<https://mana.mozilla.org/wiki/display/SVCOPS/AMO+Dev+Resources#AMODevResources-DeployingwithJenkinsBot>`_.
+Jason can help with that if needed.
 
 Before the push
 +++++++++++++++

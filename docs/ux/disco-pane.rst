@@ -5,6 +5,9 @@ So I can find useful and trusted add-ons, as a new add-ons user, I want to brows
 
 changelog
 ---------
+July 12
+- Added a slight drop shadow behind the extension/theme blocks.
+
 May 25
 - Changed app icon background to #ffffff.
 - Added new screen for 2nd or 3rd visit user prompts (still a wip)
@@ -12,7 +15,7 @@ May 25
 .. image:: ../images/disco-pane.png
 
 `Intro Video <https://github.com/mozilla/addons/issues/83>`_
------------
+------------------------------------------------------------
 .. image:: ../images/video-thumb.png
 
 * When a user clicks "Click to play", the copy to the left of the video thumbnail will fade away and the thumbnail will expand down and to the left.
@@ -22,7 +25,7 @@ May 25
 * When a user clicks "close video" below the expanded video, the video will shrink up and to the right back to its original position. The copy to the left will fade back in.
 
 `Switch Interaction <https://github.com/mozilla/addons/issues/63>`_
-------------------
+-------------------------------------------------------------------
 
 .. image:: ../images/switch.png
 
